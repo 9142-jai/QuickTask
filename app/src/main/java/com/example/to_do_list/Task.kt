@@ -1,7 +1,15 @@
 package com.example.to_do_list
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+
+@Entity(tableName = "tasks")
 data class Task(
-    val id: Int,
+    @field:PrimaryKey(autoGenerate = true)
+    val id: Int = 0,
     val title: String,
-    var isCompleted: Boolean = false
+    val isCompleted: Boolean = false,
+    val category: String = "Personal",
+    val priority: String = "Medium",
+    val dueDateEpochDay: Long? = null
 )
